@@ -31,7 +31,7 @@ public class Project2 {
             String inline = value.toString();
             if (!inline.startsWith("#"))
             {
-                String [] inVals = inline.split("\t");
+                String[] inVals = inline.split("\t");
                 String originNodeId = inVals[0];
                 String targetNodeId = inVals[1];
 
@@ -64,8 +64,8 @@ public class Project2 {
                 adjList = adjList + "," + val;
                 numAdjNodes++;
             }
-            adjList = adjList.substring(1);
-            adjList = adjList + "|" + numAdjNodes;
+            adjList = adjList.substring(1); // remove starting comma
+            adjList = adjList;
             result.set(adjList);
             context.write(key, result);
         }
@@ -86,4 +86,3 @@ public class Project2 {
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }
-
